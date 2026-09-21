@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Majapahit Master Builder</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4ead8;
+  color:#38271d;
+}
+
+header{
+  background:#8d321f;
+  color:white;
+  text-align:center;
+  padding:16px;
+}
+
+header h1{
+  margin:0;
+  font-size:30px;
+}
+
+header p{
+  margin:6px 0 0;
+  font-size:15px;
+}
+
+.main{
+  display:grid;
+  grid-template-columns:250px 1fr 270px;
+  gap:14px;
+  padding:14px;
+  max-width:1500px;
+  margin:auto;
+}
+
+.panel{
+  background:#fffaf1;
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+
+h2{
+  margin-top:0;
+  color:#7d2c1d;
+}
+
+.challenge{
+  background:#f2dfb8;
+  border-left:5px solid #a4482d;
+  padding:12px;
+  border-radius:6px;
+  line-height:1.45;
+}
+
+.rule{
+  margin:10px 0;
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+}
+
+.tick{
+  font-size:19px;
+}
+
+.brick-sample{
+  width:110px;
+  height:42px;
+  margin:18px auto 8px;
+  background:#a9432e;
+  border:3px solid #713020;
+  border-radius:3px;
+  box-shadow:
+    inset 0 3px rgba(255,255,255,.15),
+    3px 4px 0 rgba(0,0,0,.16);
+  cursor:grab;
+}
+
+.brick-sample:active{
+  cursor:grabbing;
+}
+
+.small{
+  font-size:13px;
+  color:#69554a;
+  line-height:1.4;
+}
+
+.workspace-panel{
+  min-width:0;
+}
+
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:10px;
+}
+
+button{
+  border:none;
+  padding:9px 13px;
+  border-radius:7px;
+  font-size:14px;
+  cursor:pointer;
+  background:#714332;
+  color:white;
+}
+
+button:hover{
+  filter:brightness(1.1);
+}
+
+button.secondary{
+  background:#a36a42;
+}
+
+button.archaeology{
+  background:#305d48;
+}
+
+#workspace{
+  height:580px;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #b9dded 0%,
+      #d9e9d3 57%,
+      #c6a875 58%,
+      #b99461 100%
+    );
+
+  border:3px solid #a7784f;
+  border-radius:10px;
+}
+
+/* distant landscape */
+
+#workspace::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:205px;
+  height:90px;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 100%,
+      #688052 0 35%,
+      transparent 36%
+    ),
+    radial-gradient(
+      ellipse at 45% 100%,
+      #587649 0 40%,
+      transparent 41%
+    ),
+    radial-gradient(
+      ellipse at 80% 100%,
+      #6b8354 0 37%,
+      transparent 38%
+    );
+
+  opacity:.7;
+  pointer-events:none;
+}
+
+.ground{
+  position:absolute;
+  bottom:72px;
+  left:0;
+  width:100%;
+  height:5px;
+  background:#765239;
+}
+
+.center-line{
+  position:absolute;
+  top:0;
+  bottom:72px;
+  left:50%;
+  border-left:2px dashed rgba(255,255,255,.6);
+  pointer-events:none;
+}
+
+.center-label{
+  position:absolute;
+  left:50%;
+  top:8px;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,.7);
+  padding:3px 8px;
+  border-radius:10px;
+  font-size:11px;
+  pointer-events:none;
+}
+
+.brick{
+  position:absolute;
+
+  width:54px;
+  height:25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #b65036,
+      #913825
+    );
+
+  border:2px solid #692b20;
+  border-radius:2px;
+
+  box-shadow:
+    inset 0 2px rgba(255,255,255,.15),
+    2px 3px 2px rgba(0,0,0,.22);
+
+  cursor:grab;
+  user-select:none;
+  touch-action:none;
+}
+
+.brick.vertical{
+  width:25px;
+  height:54px;
+}
+
+.brick.weathered{
+  filter:saturate(.65) brightness(.85);
+  opacity:.92;
+}
+
+.stats{
+  display:flex;
+  justify-content:space-between;
+  background:#f4ead7;
+  padding:9px 12px;
+  margin-top:9px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+.inspiration{
+  background:#ead8bd;
+  padding:12px;
+  border-radius:8px;
+  margin-bottom:14px;
+}
+
+.gateway-icon{
+  height:145px;
+  position:relative;
+  margin:10px auto;
+  width:160px;
+}
+
+/* simplified Wringin Lawang silhouette */
+
+.tower{
+  position:absolute;
+  bottom:0;
+  width:58px;
+  height:125px;
+  background:#9f432c;
+  clip-path:polygon(
+    20% 0,
+    80% 0,
+    75% 10%,
+    88% 18%,
+    76% 28%,
+    90% 38%,
+    77% 48%,
+    90% 58%,
+    78% 68%,
+    90% 78%,
+    100% 100%,
+    0 100%,
+    10% 78%,
+    22% 68%,
+    10% 58%,
+    23% 48%,
+    10% 38%,
+    24% 28%,
+    12% 18%,
+    25% 10%
+  );
+}
+
+.tower.left{
+  left:13px;
+}
+
+.tower.right{
+  right:13px;
+}
+
+.arch-card{
+  display:none;
+  background:#e5eee7;
+  border:2px solid #54765f;
+  padding:14px;
+  border-radius:10px;
+  margin-top:12px;
+}
+
+.arch-card textarea{
+  width:100%;
+  height:100px;
+  margin-top:8px;
+  padding:8px;
+  font-family:inherit;
+  resize:vertical;
+}
+
+.big-year{
+  text-align:center;
+  font-size:25px;
+  font-weight:bold;
+  color:#315c47;
+}
+
+#message{
+  min-height:20px;
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+  margin-top:7px;
+}
+
+@media(max-width:1000px){
+
+  .main{
+    grid-template-columns:1fr;
+  }
+
+  #workspace{
+    height:520px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🧱 Majapahit Master Builder</h1>
+
+<p>
+Build a monument inspired by the red-brick architecture of Trowulan.
+</p>
+
+</header>
+
+<div class="main">
+
+<!-- LEFT PANEL -->
+
+<div class="panel">
+
+<h2>Your Challenge</h2>
+
+<div class="challenge">
+
+You are a builder in <b>Trowulan</b>, the capital of Majapahit.
+
+<br><br>
+
+Your ruler wants a new monument.
+
+Can you create a structure that is
+<b>strong, symmetrical and impressive?</b>
+
+</div>
+
+<h3>Building Requirements</h3>
+
+<div class="rule">
+<span class="tick">🧱</span>
+<span>Use at least <b>30 red bricks</b>.</span>
+</div>
+
+<div class="rule">
+<span class="tick">🚪</span>
+<span>Leave an <b>opening or gateway</b>.</span>
+</div>
+
+<div class="rule">
+<span class="tick">⚖️</span>
+<span>Try to make your monument <b>symmetrical</b>.</span>
+</div>
+
+<div class="rule">
+<span class="tick">🏯</span>
+<span>Use <b>stepped layers</b> inspired by Majapahit architecture.</span>
+</div>
+
+<h3>Your Brick</h3>
+
+<div
+  class="brick-sample"
+  draggable="true"
+  id="brickSource">
+</div>
+
+<p class="small" style="text-align:center;">
+Drag this brick into the building area.
+</p>
+
+<p class="small">
+<b>Tip:</b> You can also simply click the brick to add one automatically.
+</p>
+
+</div>
+
+
+<!-- WORKSPACE -->
+
+<div class="panel workspace-panel">
+
+<div class="toolbar">
+
+<button onclick="addBrick()">
+＋ Add Brick
+</button>
+
+<button class="secondary" onclick="rotateSelected()">
+↻ Rotate
+</button>
+
+<button class="secondary" onclick="undoBrick()">
+↶ Undo
+</button>
+
+<button class="secondary" onclick="clearAll()">
+🗑 Clear
+</button>
+
+<button class="archaeology" onclick="archaeologyMode()">
+🏺 500 Years Later...
+</button>
+
+</div>
+
+<div id="workspace">
+
+<div class="center-line"></div>
+
+<div class="center-label">
+SYMMETRY LINE
+</div>
+
+<div class="ground"></div>
+
+</div>
+
+<div class="stats">
+
+<span>
+🧱 Bricks:
+<span id="brickCount">0</span>
+</span>
+
+<span id="goal">
+Goal: 30 bricks
+</span>
+
+</div>
+
+<div id="message"></div>
+
+<div class="arch-card" id="archCard">
+
+<div class="big-year">
+🏺 500 YEARS LATER...
+</div>
+
+<p>
+You are now an <b>archaeologist</b>.
+Only the remains of this monument are left.
+</p>
+
+<p>
+<b>What could this structure tell you about the people who built it?</b>
+</p>
+
+<textarea
+placeholder="I think the people of this civilisation..."
+></textarea>
+
+<p class="small">
+
+Think about:
+
+<b>building skills, technology, beliefs, wealth and what people valued.</b>
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT PANEL -->
+
+<div class="panel">
+
+<h2>🏯 Inspiration</h2>
+
+<div class="inspiration">
+
+<div class="gateway-icon">
+
+<div class="tower left"></div>
+<div class="tower right"></div>
+
+</div>
+
+<p style="text-align:center; margin-bottom:4px;">
+<b>Wringin Lawang</b>
+</p>
+
+<p class="small" style="text-align:center;">
+A famous red-brick split gateway at Trowulan.
+</p>
+
+</div>
+
+<h3>Look carefully</h3>
+
+<p class="small">
+
+Notice how the structure has:
+
+</p>
+
+<p>
+✓ Two tall sides
+</p>
+
+<p>
+✓ A central opening
+</p>
+
+<p>
+✓ A broad base
+</p>
+
+<p>
+✓ Stepped layers
+</p>
+
+<p>
+✓ Similar shapes on both sides
+</p>
+
+<hr>
+
+<h3>Think Like a Historian</h3>
+
+<p class="small">
+
+Archaeologists study buildings and objects left behind by people in the past.
+
+</p>
+
+<p class="small">
+
+The red-brick remains at <b>Trowulan</b> provide evidence that helps historians learn about Majapahit architecture and how people lived.
+
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const workspace =
+document.getElementById("workspace");
+
+const brickSource =
+document.getElementById("brickSource");
+
+let bricks = [];
+
+let selectedBrick = null;
+
+let brickID = 0;
+
+const GRID_X = 27;
+const GRID_Y = 25;
+
+
+/* --------------------
+ADD BRICK
+-------------------- */
+
+function addBrick(x=null,y=null){
+
+  const brick =
+  document.createElement("div");
+
+  brick.className="brick";
+
+  brick.dataset.id=brickID++;
+
+  if(x===null){
+
+    x =
+    workspace.clientWidth/2 - 27;
+
+  }
+
+  if(y===null){
+
+    y =
+    workspace.clientHeight - 105;
+
+  }
+
+  x=snap(x,GRID_X);
+  y=snap(y,GRID_Y);
+
+  brick.style.left=x+"px";
+  brick.style.top=y+"px";
+
+  brick.addEventListener(
+    "pointerdown",
+    startDrag
+  );
+
+  brick.addEventListener(
+    "click",
+    function(e){
+
+      e.stopPropagation();
+
+      selectBrick(brick);
+
+    }
+  );
+
+  workspace.appendChild(brick);
+
+  bricks.push(brick);
+
+  selectBrick(brick);
+
+  updateCounter();
+
+}
+
+
+/* --------------------
+SNAP
+-------------------- */
+
+function snap(value,size){
+
+  return Math.round(value/size)*size;
+
+}
+
+
+/* --------------------
+SELECT
+-------------------- */
+
+function selectBrick(brick){
+
+  if(selectedBrick){
+
+    selectedBrick.style.outline="none";
+
+  }
+
+  selectedBrick=brick;
+
+  brick.style.outline=
+  "3px solid #f2c94c";
+
+}
+
+
+/* --------------------
+DRAG
+-------------------- */
+
+let dragOffsetX=0;
+let dragOffsetY=0;
+
+
+function startDrag(e){
+
+  selectedBrick=e.currentTarget;
+
+  selectBrick(selectedBrick);
+
+  const rect=
+  selectedBrick.getBoundingClientRect();
+
+  dragOffsetX=
+  e.clientX-rect.left;
+
+  dragOffsetY=
+  e.clientY-rect.top;
+
+  selectedBrick.setPointerCapture(
+    e.pointerId
+  );
+
+  selectedBrick.addEventListener(
+    "pointermove",
+    moveBrick
+  );
+
+  selectedBrick.addEventListener(
+    "pointerup",
+    stopDrag
+  );
+
+}
+
+
+function moveBrick(e){
+
+  const area=
+  workspace.getBoundingClientRect();
+
+  let x=
+  e.clientX-area.left-dragOffsetX;
+
+  let y=
+  e.clientY-area.top-dragOffsetY;
+
+  x=Math.max(
+    0,
+    Math.min(
+      x,
+      workspace.clientWidth-
+      selectedBrick.offsetWidth
+    )
+  );
+
+  y=Math.max(
+    0,
+    Math.min(
+      y,
+      workspace.clientHeight-
+      selectedBrick.offsetHeight-72
+    )
+  );
+
+  selectedBrick.style.left=x+"px";
+
+  selectedBrick.style.top=y+"px";
+
+}
+
+
+function stopDrag(e){
+
+  if(!selectedBrick) return;
+
+  let x=
+  parseFloat(selectedBrick.style.left);
+
+  let y=
+  parseFloat(selectedBrick.style.top);
+
+  selectedBrick.style.left=
+  snap(x,GRID_X)+"px";
+
+  selectedBrick.style.top=
+  snap(y,GRID_Y)+"px";
+
+  selectedBrick.releasePointerCapture(
+    e.pointerId
+  );
+
+  selectedBrick.removeEventListener(
+    "pointermove",
+    moveBrick
+  );
+
+  selectedBrick.removeEventListener(
+    "pointerup",
+    stopDrag
+  );
+
+}
+
+
+/* --------------------
+ROTATE
+-------------------- */
+
+function rotateSelected(){
+
+  if(!selectedBrick){
+
+    showMessage(
+      "Select a brick first."
+    );
+
+    return;
+
+  }
+
+  selectedBrick.classList.toggle(
+    "vertical"
+  );
+
+}
+
+
+/* --------------------
+UNDO
+-------------------- */
+
+function undoBrick(){
+
+  if(bricks.length===0) return;
+
+  const brick=bricks.pop();
+
+  brick.remove();
+
+  if(selectedBrick===brick){
+
+    selectedBrick=null;
+
+  }
+
+  updateCounter();
+
+}
+
+
+/* --------------------
+CLEAR
+-------------------- */
+
+function clearAll(){
+
+  if(
+    bricks.length>0 &&
+    !confirm(
+      "Clear your whole monument?"
+    )
+  ){
+
+    return;
+
+  }
+
+  bricks.forEach(
+    brick=>brick.remove()
+  );
+
+  bricks=[];
+
+  selectedBrick=null;
+
+  updateCounter();
+
+  document
+  .getElementById("archCard")
+  .style.display="none";
+
+  showMessage("");
+
+}
+
+
+/* --------------------
+COUNTER
+-------------------- */
+
+function updateCounter(){
+
+  const count=bricks.length;
+
+  document
+  .getElementById("brickCount")
+  .textContent=count;
+
+  const goal=
+  document.getElementById("goal");
+
+  if(count>=30){
+
+    goal.innerHTML=
+    "✓ Brick goal reached!";
+
+  }
+
+  else{
+
+    goal.innerHTML=
+    "Goal: "+(30-count)+
+    " more bricks";
+
+  }
+
+}
+
+
+/* --------------------
+ARCHAEOLOGY MODE
+-------------------- */
+
+function archaeologyMode(){
+
+  if(bricks.length<10){
+
+    showMessage(
+      "Build more of your monument before travelling 500 years into the future!"
+    );
+
+    return;
+
+  }
+
+  bricks.forEach(
+    brick=>{
+      brick.classList.add(
+        "weathered"
+      );
+      brick.style.outline="none";
+    }
+  );
+
+  selectedBrick=null;
+
+  document
+  .getElementById("archCard")
+  .style.display="block";
+
+  document
+  .getElementById("archCard")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+
+  showMessage(
+    "🏺 You are now an archaeologist!"
+  );
+
+}
+
+
+/* --------------------
+MESSAGES
+-------------------- */
+
+function showMessage(text){
+
+  document
+  .getElementById("message")
+  .textContent=text;
+
+}
+
+
+/* --------------------
+DRAG FROM BRICK TRAY
+-------------------- */
+
+brickSource.addEventListener(
+  "dragstart",
+  function(e){
+
+    e.dataTransfer.setData(
+      "text/plain",
+      "newBrick"
+    );
+
+  }
+);
+
+
+workspace.addEventListener(
+  "dragover",
+  function(e){
+
+    e.preventDefault();
+
+  }
+);
+
+
+workspace.addEventListener(
+  "drop",
+  function(e){
+
+    e.preventDefault();
+
+    const rect=
+    workspace.getBoundingClientRect();
+
+    addBrick(
+      e.clientX-rect.left-27,
+      e.clientY-rect.top-12
+    );
+
+  }
+);
+
+
+/* click brick source */
+
+brickSource.addEventListener(
+  "click",
+  function(){
+
+    addBrick();
+
+  }
+);
+
+
+/* deselect */
+
+workspace.addEventListener(
+  "click",
+  function(){
+
+    if(selectedBrick){
+
+      selectedBrick.style.outline=
+      "none";
+
+      selectedBrick=null;
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
