@@ -7,7 +7,6 @@
 
 <title>Majapahit Master Builder</title>
 
-<!-- Ancient / mysterious fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -43,24 +42,13 @@ header{
   overflow:hidden;
 
   background:
-    radial-gradient(
-      circle at 15% 50%,
-      rgba(255,190,100,.10),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 50%,
-      rgba(0,0,0,.20),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #9d3d28,
-      #632317
-    );
+    radial-gradient(circle at 15% 50%,rgba(255,190,100,.10),transparent 30%),
+    radial-gradient(circle at 85% 50%,rgba(0,0,0,.20),transparent 35%),
+    linear-gradient(135deg,#9d3d28,#632317);
 
   color:#f5dfb0;
   text-align:center;
+
   padding:28px 20px 24px;
 
   border-bottom:4px solid #d0a15e;
@@ -70,7 +58,6 @@ header{
 }
 
 header h1{
-  position:relative;
   margin:0;
 
   font-family:"Cinzel", Georgia, serif;
@@ -86,7 +73,6 @@ header h1{
 }
 
 header p{
-  position:relative;
   margin:10px 0 0;
 
   font-family:"Cinzel", Georgia, serif;
@@ -102,6 +88,8 @@ header p{
   max-width:70%;
   height:1px;
 
+  margin:13px auto 0;
+
   background:
     linear-gradient(
       to right,
@@ -109,29 +97,29 @@ header p{
       #e0b66f,
       transparent
     );
-
-  margin:13px auto 0;
 }
 
 
 /* ==================================================
-   MAIN LAYOUT
+   MAIN
 ================================================== */
 
 .main{
   display:grid;
-  grid-template-columns:260px 1fr 280px;
+  grid-template-columns:260px minmax(500px,1fr) 330px;
+
   gap:16px;
 
   padding:18px;
 
-  max-width:1500px;
+  max-width:1550px;
+
   margin:auto;
 }
 
 
 /* ==================================================
-   PANELS
+   PANEL
 ================================================== */
 
 .panel{
@@ -142,6 +130,7 @@ header p{
     );
 
   border:1px solid #d5bd93;
+
   border-radius:12px;
 
   padding:17px;
@@ -158,13 +147,13 @@ header p{
 
 h2{
   font-family:"Cinzel", Georgia, serif;
+
   margin-top:0;
 
   color:#812d1e;
 
   font-size:27px;
   font-weight:700;
-  letter-spacing:.5px;
 }
 
 h3{
@@ -173,21 +162,21 @@ h3{
   color:#713021;
 
   font-size:18px;
-  letter-spacing:.5px;
 
   margin-top:22px;
 }
 
 
 /* ==================================================
-   CHALLENGE TITLE
+   CHALLENGE
 ================================================== */
 
 .challenge-title{
   display:inline-block;
 
   font-family:"Cinzel", Georgia, serif;
-  font-size:27px;
+
+  font-size:25px;
   font-weight:700;
 
   color:#f7e5b7;
@@ -200,27 +189,14 @@ h3{
       #812b1d
     );
 
-  padding:10px 24px 9px;
+  padding:10px 20px;
 
   margin-bottom:18px;
 
   border-radius:5px 18px 5px 18px;
-
-  box-shadow:
-    0 3px 5px rgba(0,0,0,.18);
-
-  text-shadow:
-    0 2px 2px rgba(0,0,0,.3);
 }
 
-
-/* ==================================================
-   CHALLENGE BOX
-================================================== */
-
 .challenge{
-  position:relative;
-
   background:
     linear-gradient(
       100deg,
@@ -234,13 +210,8 @@ h3{
 
   border-radius:6px 12px 12px 6px;
 
-  font-family:"IM Fell English", Georgia, serif;
   font-size:18px;
   line-height:1.55;
-
-  box-shadow:
-    inset 0 1px rgba(255,255,255,.7),
-    0 2px 5px rgba(80,40,20,.08);
 }
 
 .challenge b{
@@ -249,13 +220,14 @@ h3{
 
 
 /* ==================================================
-   RULES
+   REQUIREMENTS
 ================================================== */
 
 .rule{
-  margin:11px 0;
+  margin:13px 0;
 
   display:flex;
+
   gap:9px;
 
   align-items:flex-start;
@@ -296,19 +268,17 @@ h3{
   cursor:grab;
 }
 
-.brick-sample:active{
-  cursor:grabbing;
-}
-
 .small{
   font-size:15px;
+
   color:#69554a;
+
   line-height:1.45;
 }
 
 
 /* ==================================================
-   WORKSPACE PANEL
+   TOOLBAR
 ================================================== */
 
 .workspace-panel{
@@ -317,17 +287,13 @@ h3{
 
 .toolbar{
   display:flex;
+
   flex-wrap:wrap;
 
   gap:8px;
 
   margin-bottom:12px;
 }
-
-
-/* ==================================================
-   BUTTONS
-================================================== */
 
 button{
   border:1px solid #542419;
@@ -337,9 +303,10 @@ button{
   border-radius:5px;
 
   font-family:"Cinzel", Georgia, serif;
+
   font-size:12px;
+
   font-weight:600;
-  letter-spacing:.3px;
 
   cursor:pointer;
 
@@ -354,22 +321,12 @@ button{
   box-shadow:
     0 3px 0 #452016,
     0 4px 6px rgba(0,0,0,.15);
-
-  transition:
-    transform .12s,
-    filter .12s;
 }
 
 button:hover{
-  transform:translateY(-1px);
   filter:brightness(1.12);
-}
 
-button:active{
-  transform:translateY(2px);
-
-  box-shadow:
-    0 1px 0 #452016;
+  transform:translateY(-1px);
 }
 
 button.secondary{
@@ -390,7 +347,7 @@ button.archaeology{
 
 
 /* ==================================================
-   BUILDING AREA
+   WORKSPACE
 ================================================== */
 
 #workspace{
@@ -403,10 +360,12 @@ button.archaeology{
   background:
     linear-gradient(
       to bottom,
-      #a9ccdc 0%,
-      #d2dfc3 56%,
-      #b99b6b 57%,
-      #a77d50 100%
+      #c4d7c2 0%,
+      #c4d7c2 14%,
+      #82915d 15%,
+      #82915d 23%,
+      #b99b6b 24%,
+      #b99b6b 100%
     );
 
   border:4px solid #85563b;
@@ -422,104 +381,6 @@ button.archaeology{
 }
 
 
-/* Landscape */
-
-#workspace::before{
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  right:0;
-
-  bottom:205px;
-
-  height:100px;
-
-  background:
-    radial-gradient(
-      ellipse at 15% 100%,
-      #688052 0 35%,
-      transparent 36%
-    ),
-    radial-gradient(
-      ellipse at 45% 100%,
-      #587649 0 40%,
-      transparent 41%
-    ),
-    radial-gradient(
-      ellipse at 80% 100%,
-      #6b8354 0 37%,
-      transparent 38%
-    );
-
-  opacity:.75;
-
-  pointer-events:none;
-
-  transition:
-    filter 2s ease,
-    opacity 2s ease;
-}
-
-
-/* ==================================================
-   RUINED ENVIRONMENT
-================================================== */
-
-#workspace.ancient-ruins{
-  background:
-    linear-gradient(
-      to bottom,
-      #7f8581 0%,
-      #a09e8c 45%,
-      #827762 57%,
-      #625341 100%
-    );
-
-  filter:saturate(.65);
-}
-
-#workspace.ancient-ruins::before{
-  filter:
-    grayscale(.35)
-    brightness(.72);
-
-  opacity:.65;
-}
-
-#workspace.ancient-ruins::after{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      rgba(68,63,55,.08),
-      rgba(45,41,34,.27)
-    );
-
-  pointer-events:none;
-
-  z-index:4;
-
-  animation:
-    fadeAncient 2.5s ease forwards;
-}
-
-@keyframes fadeAncient{
-
-  from{
-    opacity:0;
-  }
-
-  to{
-    opacity:1;
-  }
-}
-
-
 /* ==================================================
    GROUND
 ================================================== */
@@ -527,50 +388,52 @@ button.archaeology{
 .ground{
   position:absolute;
 
-  bottom:72px;
+  bottom:40px;
+
   left:0;
 
   width:100%;
-  height:5px;
 
-  background:#69452f;
+  height:6px;
+
+  background:#65432d;
 
   z-index:2;
 }
 
 
 /* ==================================================
-   SYMMETRY LINE
+   SYMMETRY
 ================================================== */
 
 .center-line{
   position:absolute;
 
   top:0;
-  bottom:72px;
+
+  bottom:40px;
 
   left:50%;
 
   border-left:
-    2px dashed rgba(255,255,255,.65);
-
-  pointer-events:none;
+    2px dashed rgba(255,255,255,.75);
 
   z-index:3;
+
+  pointer-events:none;
 }
 
 .center-label{
   position:absolute;
 
-  left:50%;
   top:8px;
+
+  left:50%;
 
   transform:translateX(-50%);
 
   background:
-    rgba(255,248,224,.88);
-
-  color:#6b3829;
+    rgba(255,248,224,.9);
 
   padding:4px 10px;
 
@@ -579,37 +442,24 @@ button.archaeology{
   font-family:"Cinzel", Georgia, serif;
 
   font-size:10px;
-  letter-spacing:.4px;
 
-  pointer-events:none;
+  color:#6b3829;
 
   z-index:3;
-}
 
-
-/* Hide guides in archaeology mode */
-
-#workspace.ancient-ruins
-.center-line,
-
-#workspace.ancient-ruins
-.center-label{
-  opacity:0;
-
-  transition:
-    opacity 1s ease;
+  pointer-events:none;
 }
 
 
 /* ==================================================
-   BUILDING BRICKS
+   BRICKS
 ================================================== */
 
 .brick{
   position:absolute;
 
-  width:54px;
-  height:25px;
+  width:60px;
+  height:29px;
 
   background:
     linear-gradient(
@@ -620,7 +470,7 @@ button.archaeology{
 
   border:2px solid #692b20;
 
-  border-radius:2px;
+  border-radius:3px;
 
   box-shadow:
     inset 0 2px rgba(255,255,255,.15),
@@ -639,13 +489,48 @@ button.archaeology{
     border-color 2s ease,
     filter 2s ease,
     opacity 2s ease,
-    transform 2s ease,
-    top 2s ease;
+    transform 2s ease;
 }
 
 .brick.vertical{
-  width:25px;
-  height:54px;
+  width:29px;
+  height:60px;
+}
+
+
+/* ==================================================
+   FALLING ANIMATION
+================================================== */
+
+.brick.falling{
+  transition:
+    top .28s cubic-bezier(.2,.7,.35,1),
+    background 2s ease,
+    filter 2s ease;
+}
+
+
+/* ==================================================
+   500 YEARS LATER
+================================================== */
+
+#workspace.ancient-ruins{
+  background:
+    linear-gradient(
+      to bottom,
+      #838b85 0%,
+      #929b87 15%,
+      #737a57 24%,
+      #786951 25%,
+      #625341 100%
+    );
+
+  filter:saturate(.65);
+}
+
+#workspace.ancient-ruins .center-line,
+#workspace.ancient-ruins .center-label{
+  opacity:0;
 }
 
 
@@ -657,129 +542,73 @@ button.archaeology{
   background:
     linear-gradient(
       135deg,
-      #7a6558,
-      #55473f
+      #826554,
+      #58483f
     );
 
-  border-color:#433a34;
+  border-color:#443832;
 
   filter:
-    saturate(.25)
-    brightness(.78);
-
-  box-shadow:
-    inset 0 2px rgba(255,255,255,.04),
-    2px 3px 3px rgba(0,0,0,.3);
+    saturate(.3)
+    brightness(.8);
 }
 
 .brick.damaged{
-  opacity:.72;
-
-  transform:
-    rotate(6deg)
-    translateY(3px);
-
-  border-radius:
-    5px 1px 6px 2px;
+  transform:rotate(5deg);
 }
 
 .brick.damaged-left{
-  transform:
-    rotate(-7deg)
-    translateY(5px);
+  transform:rotate(-6deg);
 }
 
 .brick.ruined{
-  opacity:.35;
+  opacity:.48;
 
   filter:
-    grayscale(.55)
-    brightness(.6);
-
-  transform:
-    rotate(-9deg)
-    translateY(12px);
+    grayscale(.35)
+    brightness(.68);
 }
 
 .brick.missing{
-  opacity:.08;
+  opacity:.10;
 
   transform:
-    translateY(25px)
-    rotate(15deg)
-    scale(.8);
+    translateY(18px)
+    rotate(10deg);
 }
 
 
 /* ==================================================
-   VEGETATION
+   PLANTS
 ================================================== */
 
 .ruin-plant{
   position:absolute;
 
-  width:38px;
-  height:23px;
+  width:35px;
+  height:20px;
 
   background:#536344;
 
   border-radius:
     60% 20% 60% 30%;
 
-  opacity:0;
-
   z-index:8;
 
+  opacity:.85;
+
   pointer-events:none;
-
-  transform-origin:bottom center;
-
-  animation:
-    growPlant 2.4s ease forwards;
-}
-
-.ruin-plant::after{
-  content:"";
-
-  position:absolute;
-
-  width:26px;
-  height:16px;
-
-  left:18px;
-  top:6px;
-
-  background:#687453;
-
-  border-radius:
-    20% 70% 30% 60%;
-
-  transform:
-    rotate(-20deg);
-}
-
-@keyframes growPlant{
-
-  from{
-    opacity:0;
-    transform:scale(.1);
-  }
-
-  to{
-    opacity:.85;
-    transform:scale(1);
-  }
 }
 
 
 /* ==================================================
-   TIME TRAVEL OVERLAY
+   TIME MESSAGE
 ================================================== */
 
 .time-transition{
   position:absolute;
 
-  top:43%;
+  top:42%;
   left:50%;
 
   transform:
@@ -793,18 +622,16 @@ button.archaeology{
 
   font-family:"Cinzel", Georgia, serif;
 
-  font-size:38px;
-  font-weight:700;
+  font-size:36px;
 
-  letter-spacing:3px;
+  font-weight:bold;
 
-  color:#f4e6c1;
+  letter-spacing:2px;
+
+  color:#f5e8c7;
 
   text-shadow:
-    0 3px 8px black,
-    0 0 18px rgba(0,0,0,.7);
-
-  pointer-events:none;
+    0 3px 8px #000;
 
   animation:
     timeTravel 4s forwards;
@@ -817,23 +644,17 @@ button.archaeology{
 
   font-family:"IM Fell English", Georgia, serif;
 
-  font-size:20px;
+  font-size:19px;
+
+  letter-spacing:0;
 
   font-weight:normal;
-
-  letter-spacing:1px;
-
-  color:#e5d8b9;
 }
 
 @keyframes timeTravel{
 
   0%{
     opacity:0;
-
-    transform:
-      translate(-50%,-50%)
-      scale(.75);
   }
 
   20%{
@@ -846,11 +667,8 @@ button.archaeology{
 
   100%{
     opacity:0;
-
-    transform:
-      translate(-50%,-50%)
-      scale(1.08);
   }
+
 }
 
 
@@ -861,18 +679,17 @@ button.archaeology{
 .stats{
   display:flex;
 
-  justify-content:
-    space-between;
+  justify-content:space-between;
+
+  margin-top:10px;
+
+  padding:11px 13px;
 
   background:
     linear-gradient(
       #efe1c4,
       #e6d1aa
     );
-
-  padding:10px 13px;
-
-  margin-top:10px;
 
   border:1px solid #c5a578;
 
@@ -881,14 +698,27 @@ button.archaeology{
   font-family:"Cinzel", Georgia, serif;
 
   font-size:13px;
+
   font-weight:bold;
 
   color:#663626;
 }
 
+#message{
+  min-height:24px;
+
+  margin-top:8px;
+
+  text-align:center;
+
+  color:#743322;
+
+  font-weight:bold;
+}
+
 
 /* ==================================================
-   INSPIRATION
+   RIGHT PANEL
 ================================================== */
 
 .inspiration{
@@ -902,24 +732,17 @@ button.archaeology{
 
   border-radius:8px;
 
-  margin-bottom:14px;
-
   border:1px solid #b99668;
 }
 
-
-/* ==================================================
-   WRINGIN LAWANG
-================================================== */
-
 .gateway-icon{
-  height:150px;
+  height:130px;
 
   position:relative;
 
-  margin:10px auto;
-
   width:170px;
+
+  margin:auto;
 }
 
 .tower{
@@ -928,7 +751,7 @@ button.archaeology{
   bottom:0;
 
   width:58px;
-  height:130px;
+  height:120px;
 
   background:
     linear-gradient(
@@ -937,9 +760,6 @@ button.archaeology{
       #b45134,
       #7b2b1d
     );
-
-  box-shadow:
-    3px 4px 4px rgba(0,0,0,.25);
 
   clip-path:
     polygon(
@@ -982,6 +802,8 @@ button.archaeology{
 .arch-card{
   display:none;
 
+  margin-top:14px;
+
   background:
     linear-gradient(
       #e8ead9,
@@ -992,28 +814,7 @@ button.archaeology{
 
   padding:16px;
 
-  border-radius:8px;
-
-  margin-top:14px;
-}
-
-.arch-card textarea{
-  width:100%;
-  height:110px;
-
-  margin-top:8px;
-
-  padding:10px;
-
-  font-family:"IM Fell English", Georgia, serif;
-
-  font-size:17px;
-
-  border:1px solid #758b76;
-
-  background:#fffdf4;
-
-  resize:vertical;
+  border-radius:9px;
 }
 
 .big-year{
@@ -1021,42 +822,121 @@ button.archaeology{
 
   font-family:"Cinzel", Georgia, serif;
 
-  font-size:25px;
+  font-size:24px;
+
   font-weight:bold;
 
   color:#315c47;
+
+  margin-bottom:16px;
 }
 
 
 /* ==================================================
-   MESSAGE
+   QUIZ
 ================================================== */
 
-#message{
-  min-height:22px;
+.quiz-title{
+  margin-top:18px;
+
+  padding:13px;
+
+  background:#f0ddb6;
+
+  border-radius:7px;
+
+  font-weight:bold;
+
+  font-size:19px;
+
+  line-height:1.35;
+}
+
+.quiz-instruction{
+  margin-top:5px;
+
+  font-size:15px;
+
+  font-weight:normal;
+}
+
+.quiz-option{
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:10px;
+
+  margin:9px 0;
+
+  padding:11px;
+
+  background:rgba(255,255,255,.48);
+
+  border:1px solid #c8c6a8;
+
+  border-radius:6px;
+
+  cursor:pointer;
+
+  line-height:1.3;
+}
+
+.quiz-option:hover{
+  background:#f7f2df;
+}
+
+.quiz-option input{
+  width:19px;
+  height:19px;
+
+  flex:0 0 auto;
+
+  margin-top:2px;
+
+  accent-color:#45684f;
+}
+
+.quiz-option.correct{
+  background:#dcebd6;
+
+  border-color:#5f8a62;
+}
+
+.quiz-option.wrong{
+  background:#efd4ce;
+
+  border-color:#a85c50;
+}
+
+.quiz-option.missed{
+  background:#f4e7bb;
+
+  border-color:#ba9447;
+}
+
+.check-button{
+  width:100%;
+
+  margin-top:13px;
+
+  background:
+    linear-gradient(
+      #496c52,
+      #304b39
+    );
+
+  font-size:13px;
+}
+
+#quizResult{
+  margin-top:12px;
 
   text-align:center;
 
-  font-size:16px;
   font-weight:bold;
 
-  margin-top:9px;
-
-  color:#743322;
-}
-
-
-/* ==================================================
-   DIVIDER
-================================================== */
-
-hr{
-  border:none;
-
-  border-top:
-    1px solid #c7ad82;
-
-  margin:20px 0;
+  line-height:1.4;
 }
 
 
@@ -1064,7 +944,7 @@ hr{
    RESPONSIVE
 ================================================== */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
   .main{
     grid-template-columns:1fr;
@@ -1074,13 +954,6 @@ hr{
     height:520px;
   }
 
-  header h1{
-    font-size:31px;
-  }
-
-  .time-transition{
-    font-size:27px;
-  }
 }
 
 </style>
@@ -1090,15 +963,9 @@ hr{
 <body>
 
 
-<!-- ==================================================
-     HEADER
-================================================== -->
-
 <header>
 
-<h1>
-🧱 Majapahit Master Builder
-</h1>
+<h1>🧱 Majapahit Master Builder</h1>
 
 <div class="header-decoration"></div>
 
@@ -1109,15 +976,11 @@ Build a monument inspired by the red-brick architecture of Trowulan
 </header>
 
 
-<!-- ==================================================
-     MAIN
-================================================== -->
-
 <div class="main">
 
 
 <!-- ==================================================
-     LEFT PANEL
+     LEFT
 ================================================== -->
 
 <div class="panel">
@@ -1140,16 +1003,12 @@ Use red bricks to design a structure that will stand as a
 </div>
 
 
-<h3>
-Building Requirements
-</h3>
+<h3>Building Requirements</h3>
 
 
 <div class="rule">
 
-<span class="tick">
-🧱
-</span>
+<span class="tick">🧱</span>
 
 <span>
 Use at least
@@ -1161,9 +1020,7 @@ Use at least
 
 <div class="rule">
 
-<span class="tick">
-🚪
-</span>
+<span class="tick">🚪</span>
 
 <span>
 Leave an
@@ -1175,9 +1032,7 @@ Leave an
 
 <div class="rule">
 
-<span class="tick">
-⚖️
-</span>
+<span class="tick">⚖️</span>
 
 <span>
 Try to make your monument
@@ -1189,9 +1044,7 @@ Try to make your monument
 
 <div class="rule">
 
-<span class="tick">
-🏯
-</span>
+<span class="tick">🏯</span>
 
 <span>
 Use
@@ -1202,9 +1055,7 @@ inspired by Majapahit architecture.
 </div>
 
 
-<h3>
-Your Brick
-</h3>
+<h3>Your Brick</h3>
 
 
 <div
@@ -1225,8 +1076,8 @@ Drag this brick into the building area.
 
 <p class="small">
 
-<b>Tip:</b>
-You can also click the brick to add one automatically.
+<b>Important:</b>
+Bricks obey gravity. Each brick must rest on the ground or on another brick.
 
 </p>
 
@@ -1234,7 +1085,7 @@ You can also click the brick to add one automatically.
 
 
 <!-- ==================================================
-     WORKSPACE
+     CENTRE
 ================================================== -->
 
 <div class="panel workspace-panel">
@@ -1242,11 +1093,9 @@ You can also click the brick to add one automatically.
 
 <div class="toolbar">
 
-
 <button onclick="addBrick()">
 ＋ Add Brick
 </button>
-
 
 <button
 class="secondary"
@@ -1254,13 +1103,11 @@ onclick="rotateSelected()">
 ↻ Rotate
 </button>
 
-
 <button
 class="secondary"
 onclick="undoBrick()">
 ↶ Undo
 </button>
-
 
 <button
 class="secondary"
@@ -1268,13 +1115,11 @@ onclick="clearAll()">
 🗑 Clear
 </button>
 
-
 <button
 class="archaeology"
 onclick="archaeologyMode()">
 🏺 500 Years Later...
 </button>
-
 
 </div>
 
@@ -1296,9 +1141,7 @@ SYMMETRY LINE
 
 <span>
 🧱 Bricks:
-<span id="brickCount">
-0
-</span>
+<span id="brickCount">0</span>
 </span>
 
 <span id="goal">
@@ -1310,79 +1153,23 @@ Goal: 20 bricks
 
 <div id="message"></div>
 
-
-<!-- ==================================================
-     ARCHAEOLOGIST CARD
-================================================== -->
-
-<div
-class="arch-card"
-id="archCard">
-
-<div class="big-year">
-🏺 500 YEARS LATER...
-</div>
-
-<p>
-Centuries have passed.
-Your once-new monument has been exposed to
-<b>rain, heat, plants and the passage of time.</b>
-</p>
-
-<p>
-Some bricks have faded, shifted or disappeared.
-Only part of the original structure remains.
-</p>
-
-<p>
-You are now an
-<b>archaeologist</b>
-studying these ruins.
-</p>
-
-<p>
-<b>
-What could these remains tell you about the people of Majapahit?
-</b>
-</p>
-
-
-<textarea
-placeholder="From these ruins, I think the people of Majapahit...">
-</textarea>
-
-
-<p class="small">
-
-Think about:
-
-<b>
-their building skills,
-technology,
-architecture,
-wealth
-and what they valued.
-</b>
-
-</p>
-
-</div>
-
 </div>
 
 
 <!-- ==================================================
-     RIGHT PANEL
+     RIGHT
 ================================================== -->
 
 <div class="panel">
 
-<h2>
-🏯 Inspiration
-</h2>
+
+<div id="inspirationSection">
+
+<h2>🏯 Inspiration</h2>
 
 
 <div class="inspiration">
+
 
 <div class="gateway-icon">
 
@@ -1393,22 +1180,16 @@ and what they valued.
 </div>
 
 
-<p
-style="
-text-align:center;
-margin-bottom:4px;
-">
+<p style="text-align:center">
 
-<b>
-Wringin Lawang
-</b>
+<b>Wringin Lawang</b>
 
 </p>
 
 
 <p
 class="small"
-style="text-align:center;">
+style="text-align:center">
 
 A famous red-brick split gateway at Trowulan.
 
@@ -1417,75 +1198,211 @@ A famous red-brick split gateway at Trowulan.
 </div>
 
 
-<h3>
-Look Carefully
-</h3>
-
-<p class="small">
-Notice how the structure has:
-</p>
-
-<p>
-✓ Two tall sides
-</p>
-
-<p>
-✓ A central opening
-</p>
-
-<p>
-✓ A broad base
-</p>
-
-<p>
-✓ Stepped layers
-</p>
-
-<p>
-✓ Similar shapes on both sides
-</p>
-
-
-<hr>
-
-
-<h3>
-Think Like a Historian
-</h3>
+<h3>Look Carefully</h3>
 
 <p class="small">
 
-Archaeologists study buildings and objects left behind by people in the past.
+Notice how the structure has a broad base,
+stepped layers, two tall sides and a central opening.
 
 </p>
+
+
+<h3>Think Like a Builder</h3>
 
 <p class="small">
 
-The red-brick remains at
-<b>Trowulan</b>
-provide evidence that helps historians learn about Majapahit architecture and how people lived.
+Your bricks cannot float.
+
+Each brick needs support from the
+<b>ground or another brick below it.</b>
 
 </p>
-
-</div>
 
 </div>
 
 
 <!-- ==================================================
-     JAVASCRIPT
+     500 YEARS LATER CARD
 ================================================== -->
+
+<div
+class="arch-card"
+id="archCard">
+
+
+<div class="big-year">
+
+🏺 500 YEARS LATER...
+
+</div>
+
+
+<p>
+
+Centuries have passed.
+
+Your once-new monument has been exposed to
+<b>rain, heat, plants and the passage of time.</b>
+
+</p>
+
+
+<p>
+
+Some bricks have faded, shifted or disappeared.
+
+Only part of the original structure remains.
+
+</p>
+
+
+<p>
+
+You are now an
+<b>archaeologist</b>
+studying these ruins.
+
+</p>
+
+
+<div class="quiz-title">
+
+What could these remains tell you about the people of Majapahit?
+
+<div class="quiz-instruction">
+
+Select the <b>3 statements</b> that are true.
+
+</div>
+
+</div>
+
+
+<label
+class="quiz-option"
+data-answer="true">
+
+<input
+type="checkbox"
+class="quiz-check">
+
+<span>
+
+They were
+<b>skilled builders</b>
+who knew how to construct structures using red bricks.
+
+</span>
+
+</label>
+
+
+<label
+class="quiz-option"
+data-answer="true">
+
+<input
+type="checkbox"
+class="quiz-check">
+
+<span>
+
+Their buildings show that they had
+<b>knowledge of architecture and construction.</b>
+
+</span>
+
+</label>
+
+
+<label
+class="quiz-option"
+data-answer="false">
+
+<input
+type="checkbox"
+class="quiz-check">
+
+<span>
+
+The people of Majapahit lived in
+<b>modern skyscrapers made of steel and glass.</b>
+
+</span>
+
+</label>
+
+
+<label
+class="quiz-option"
+data-answer="true">
+
+<input
+type="checkbox"
+class="quiz-check">
+
+<span>
+
+Building large monuments would have required
+<b>people, materials and organised work.</b>
+
+</span>
+
+</label>
+
+
+<label
+class="quiz-option"
+data-answer="false">
+
+<input
+type="checkbox"
+class="quiz-check">
+
+<span>
+
+The ruins prove that the people of Majapahit used
+<b>computers and modern machines</b>
+to construct their buildings.
+
+</span>
+
+</label>
+
+
+<button
+class="check-button"
+onclick="checkAnswers()">
+
+✓ Check Answers
+
+</button>
+
+
+<div id="quizResult"></div>
+
+
+</div>
+
+</div>
+
+</div>
+
 
 <script>
 
+/* ==================================================
+   VARIABLES
+================================================== */
 
 const workspace =
 document.getElementById("workspace");
 
-
 const brickSource =
 document.getElementById("brickSource");
 
+const GROUND_BOTTOM = 46;
 
 let bricks = [];
 
@@ -1495,10 +1412,9 @@ let brickID = 0;
 
 let archaeologyActivated = false;
 
+let dragOffsetX = 0;
 
-const GRID_X = 27;
-
-const GRID_Y = 25;
+let dragOffsetY = 0;
 
 
 
@@ -1511,7 +1427,7 @@ function addBrick(x=null,y=null){
   if(archaeologyActivated){
 
     showMessage(
-      "You are now studying the ruins. Clear the monument to begin a new build."
+      "Clear the ruins to begin a new monument."
     );
 
     return;
@@ -1530,28 +1446,34 @@ function addBrick(x=null,y=null){
   brickID++;
 
 
-  if(x===null){
+  /*
+  New bricks start near the top,
+  then gravity places them.
+  */
+
+  if(x === null){
 
     x =
-    workspace.clientWidth / 2 - 27;
+    workspace.clientWidth / 2 - 30;
 
   }
 
 
-  if(y===null){
+  if(y === null){
 
-    y =
-    workspace.clientHeight - 105;
+    y = 40;
 
   }
 
 
   x =
-  snap(x,GRID_X);
-
-
-  y =
-  snap(y,GRID_Y);
+  Math.max(
+    0,
+    Math.min(
+      x,
+      workspace.clientWidth - 60
+    )
+  );
 
 
   brick.style.left =
@@ -1595,6 +1517,22 @@ function addBrick(x=null,y=null){
   );
 
 
+  /*
+  Let the browser calculate its size
+  before applying gravity.
+  */
+
+  requestAnimationFrame(
+    function(){
+
+      dropBrick(
+        brick
+      );
+
+    }
+  );
+
+
   updateCounter();
 
 }
@@ -1602,21 +1540,7 @@ function addBrick(x=null,y=null){
 
 
 /* ==================================================
-   SNAP
-================================================== */
-
-function snap(value,size){
-
-  return Math.round(
-    value / size
-  ) * size;
-
-}
-
-
-
-/* ==================================================
-   SELECT BRICK
+   SELECT
 ================================================== */
 
 function selectBrick(brick){
@@ -1638,7 +1562,7 @@ function selectBrick(brick){
   brick;
 
 
-  brick.style.outline =
+  selectedBrick.style.outline =
   "3px solid #e5bd58";
 
 }
@@ -1646,13 +1570,8 @@ function selectBrick(brick){
 
 
 /* ==================================================
-   DRAG BRICK
+   DRAG
 ================================================== */
-
-let dragOffsetX = 0;
-
-let dragOffsetY = 0;
-
 
 function startDrag(e){
 
@@ -1689,6 +1608,11 @@ function startDrag(e){
   );
 
 
+  selectedBrick.classList.remove(
+    "falling"
+  );
+
+
   selectedBrick.addEventListener(
     "pointermove",
     moveBrick
@@ -1703,6 +1627,10 @@ function startDrag(e){
 }
 
 
+
+/* ==================================================
+   MOVE
+================================================== */
 
 function moveBrick(e){
 
@@ -1745,7 +1673,7 @@ function moveBrick(e){
       y,
       workspace.clientHeight -
       selectedBrick.offsetHeight -
-      72
+      GROUND_BOTTOM
     )
   );
 
@@ -1761,6 +1689,10 @@ function moveBrick(e){
 
 
 
+/* ==================================================
+   RELEASE BRICK
+================================================== */
+
 function stopDrag(e){
 
   if(!selectedBrick){
@@ -1768,46 +1700,282 @@ function stopDrag(e){
   }
 
 
-  let x =
-  parseFloat(
-    selectedBrick.style.left
-  );
+  const brick =
+  selectedBrick;
 
 
-  let y =
-  parseFloat(
-    selectedBrick.style.top
-  );
-
-
-  selectedBrick.style.left =
-  snap(
-    x,
-    GRID_X
-  ) + "px";
-
-
-  selectedBrick.style.top =
-  snap(
-    y,
-    GRID_Y
-  ) + "px";
-
-
-  selectedBrick.releasePointerCapture(
+  brick.releasePointerCapture(
     e.pointerId
   );
 
 
-  selectedBrick.removeEventListener(
+  brick.removeEventListener(
     "pointermove",
     moveBrick
   );
 
 
-  selectedBrick.removeEventListener(
+  brick.removeEventListener(
     "pointerup",
     stopDrag
+  );
+
+
+  /*
+  GRAVITY!
+
+  Once the student releases the brick,
+  it falls until it finds support.
+  */
+
+  dropBrick(
+    brick
+  );
+
+}
+
+
+
+/* ==================================================
+   GRAVITY SYSTEM
+================================================== */
+
+function dropBrick(brick){
+
+  if(!brick){
+    return;
+  }
+
+
+  /*
+  Bottom position where a brick can
+  sit directly on the ground.
+  */
+
+  const groundTop =
+
+    workspace.clientHeight
+    -
+    GROUND_BOTTOM
+    -
+    brick.offsetHeight;
+
+
+  /*
+  Start by assuming it will fall
+  all the way to the ground.
+  */
+
+  let targetTop =
+  groundTop;
+
+
+  const brickLeft =
+  parseFloat(
+    brick.style.left
+  );
+
+
+  const brickRight =
+  brickLeft +
+  brick.offsetWidth;
+
+
+  /*
+  Search every other brick.
+
+  If another brick is horizontally
+  underneath this brick, it may
+  support it.
+  */
+
+  bricks.forEach(
+    other => {
+
+
+      if(
+        other === brick ||
+        other.classList.contains(
+          "missing"
+        )
+      ){
+
+        return;
+
+      }
+
+
+      const otherLeft =
+      parseFloat(
+        other.style.left
+      );
+
+
+      const otherRight =
+      otherLeft +
+      other.offsetWidth;
+
+
+      const otherTop =
+      parseFloat(
+        other.style.top
+      );
+
+
+      /*
+      Calculate horizontal overlap.
+      */
+
+      const overlap =
+
+        Math.min(
+          brickRight,
+          otherRight
+        )
+
+        -
+
+        Math.max(
+          brickLeft,
+          otherLeft
+        );
+
+
+      /*
+      Require reasonable support.
+
+      At least 35% of the smaller
+      brick must overlap.
+      */
+
+      const requiredSupport =
+
+        Math.min(
+          brick.offsetWidth,
+          other.offsetWidth
+        )
+
+        * .35;
+
+
+      if(
+        overlap >= requiredSupport
+      ){
+
+        /*
+        The possible resting position
+        is directly on top of this brick.
+        */
+
+        const possibleTop =
+
+          otherTop -
+          brick.offsetHeight;
+
+
+        /*
+        Only use supports that are
+        BELOW the brick's current position.
+        */
+
+        const currentTop =
+        parseFloat(
+          brick.style.top
+        );
+
+
+        if(
+          possibleTop >= currentTop - 5 &&
+          possibleTop < targetTop
+        ){
+
+          targetTop =
+          possibleTop;
+
+        }
+
+      }
+
+    }
+  );
+
+
+  /*
+  Never allow brick above canvas.
+  */
+
+  targetTop =
+  Math.max(
+    0,
+    targetTop
+  );
+
+
+  brick.classList.add(
+    "falling"
+  );
+
+
+  brick.style.top =
+  targetTop + "px";
+
+
+  setTimeout(
+    function(){
+
+      brick.classList.remove(
+        "falling"
+      );
+
+    },
+    300
+  );
+
+}
+
+
+
+/* ==================================================
+   RE-SETTLE ALL BRICKS
+================================================== */
+
+function settleAllBricks(){
+
+  /*
+  Lower bricks settle first.
+  */
+
+  const sorted =
+  [...bricks].sort(
+    (a,b) =>
+
+    parseFloat(
+      b.style.top
+    )
+
+    -
+
+    parseFloat(
+      a.style.top
+    )
+  );
+
+
+  sorted.forEach(
+    function(brick,index){
+
+      setTimeout(
+        function(){
+
+          dropBrick(
+            brick
+          );
+
+        },
+        index * 25
+      );
+
+    }
   );
 
 }
@@ -1820,29 +1988,45 @@ function stopDrag(e){
 
 function rotateSelected(){
 
-  if(archaeologyActivated){
-
-    showMessage(
-      "The monument is now an archaeological ruin."
-    );
+  if(
+    archaeologyActivated
+  ){
 
     return;
   }
 
 
-  if(!selectedBrick){
+  if(
+    !selectedBrick
+  ){
 
     showMessage(
       "Select a brick first."
     );
 
     return;
-
   }
 
 
   selectedBrick.classList.toggle(
     "vertical"
+  );
+
+
+  /*
+  Rotation changes the brick's
+  dimensions, so gravity is applied
+  again.
+  */
+
+  requestAnimationFrame(
+    function(){
+
+      dropBrick(
+        selectedBrick
+      );
+
+    }
   );
 
 }
@@ -1855,17 +2039,11 @@ function rotateSelected(){
 
 function undoBrick(){
 
-  if(archaeologyActivated){
+  if(
+    archaeologyActivated ||
+    bricks.length === 0
+  ){
 
-    showMessage(
-      "The monument is now an archaeological ruin."
-    );
-
-    return;
-  }
-
-
-  if(bricks.length===0){
     return;
   }
 
@@ -1887,6 +2065,17 @@ function undoBrick(){
   }
 
 
+  /*
+  Removing one brick may leave
+  others unsupported.
+  */
+
+  setTimeout(
+    settleAllBricks,
+    50
+  );
+
+
   updateCounter();
 
 }
@@ -1894,7 +2083,7 @@ function undoBrick(){
 
 
 /* ==================================================
-   CLEAR / RESET
+   CLEAR
 ================================================== */
 
 function clearAll(){
@@ -1907,7 +2096,6 @@ function clearAll(){
   ){
 
     return;
-
   }
 
 
@@ -1928,23 +2116,9 @@ function clearAll(){
   false;
 
 
-  /* remove plants */
-
   document
   .querySelectorAll(
-    ".ruin-plant"
-  )
-  .forEach(
-    plant =>
-    plant.remove()
-  );
-
-
-  /* remove transition */
-
-  document
-  .querySelectorAll(
-    ".time-transition"
+    ".ruin-plant, .time-transition"
   )
   .forEach(
     item =>
@@ -1965,19 +2139,28 @@ function clearAll(){
   "none";
 
 
+  document
+  .getElementById(
+    "inspirationSection"
+  )
+  .style.display =
+  "block";
+
+
+  resetQuiz();
+
+
   updateCounter();
 
 
-  showMessage(
-    ""
-  );
+  showMessage("");
 
 }
 
 
 
 /* ==================================================
-   BRICK COUNTER
+   COUNTER
 ================================================== */
 
 function updateCounter(){
@@ -2000,10 +2183,12 @@ function updateCounter(){
   );
 
 
-  if(count >= 20){
+  if(
+    count >= 20
+  ){
 
     goal.innerHTML =
-    "✓ Brick goal reached!";
+    "✓ Goal reached! (20 bricks)";
 
   }
 
@@ -2026,25 +2211,23 @@ function updateCounter(){
 
 function archaeologyMode(){
 
-  if(archaeologyActivated){
-
-    showMessage(
-      "You are already exploring the ruins 500 years later."
-    );
+  if(
+    archaeologyActivated
+  ){
 
     return;
-
   }
 
 
-  if(bricks.length < 10){
+  if(
+    bricks.length < 20
+  ){
 
     showMessage(
-      "Build more of your monument before travelling 500 years into the future!"
+      "Use at least 20 bricks before travelling 500 years into the future."
     );
 
     return;
-
   }
 
 
@@ -2066,10 +2249,6 @@ function archaeologyMode(){
   );
 
 
-  /* --------------------------------
-     TIME TRAVEL MESSAGE
-  -------------------------------- */
-
   const transition =
   document.createElement(
     "div"
@@ -2082,17 +2261,17 @@ function archaeologyMode(){
 
   transition.innerHTML =
 
-  "500 YEARS PASS..."
+    "500 YEARS PASS..."
 
-  +
+    +
 
-  '<span class="time-subtitle">' +
+    '<span class="time-subtitle">' +
 
-  "Rain • Heat • Plants • Time"
+    "Rain • Heat • Plants • Time"
 
-  +
+    +
 
-  "</span>";
+    "</span>";
 
 
   workspace.appendChild(
@@ -2101,13 +2280,9 @@ function archaeologyMode(){
 
 
   showMessage(
-    "⏳ Time is passing..."
+    "⏳ Centuries are passing..."
   );
 
-
-  /* --------------------------------
-     ENVIRONMENT FADES
-  -------------------------------- */
 
   setTimeout(
     function(){
@@ -2117,13 +2292,13 @@ function archaeologyMode(){
       );
 
     },
-    600
+    500
   );
 
 
-  /* --------------------------------
-     WEATHER EACH BRICK
-  -------------------------------- */
+  /*
+  Weather the bricks.
+  */
 
   bricks.forEach(
     (brick,index) => {
@@ -2138,11 +2313,9 @@ function archaeologyMode(){
           );
 
 
-          /*
-          Some bricks tilt to the right
-          */
-
-          if(index % 4 === 0){
+          if(
+            index % 5 === 0
+          ){
 
             brick.classList.add(
               "damaged"
@@ -2151,11 +2324,9 @@ function archaeologyMode(){
           }
 
 
-          /*
-          Other bricks tilt left
-          */
-
-          if(index % 6 === 0){
+          if(
+            index % 7 === 0
+          ){
 
             brick.classList.add(
               "damaged-left"
@@ -2164,22 +2335,8 @@ function archaeologyMode(){
           }
 
 
-          /*
-          Get height of brick.
-          Upper bricks are more likely
-          to appear heavily damaged.
-          */
-
-          const top =
-          parseFloat(
-            brick.style.top
-          );
-
-
           if(
-            index % 7 === 0 &&
-            top <
-            workspace.clientHeight * .7
+            index % 9 === 0
           ){
 
             brick.classList.add(
@@ -2190,14 +2347,11 @@ function archaeologyMode(){
 
 
           /*
-          A small number of bricks
-          almost disappear to simulate
-          sections that have collapsed.
+          Only a few bricks disappear.
           */
 
           if(
-            index % 11 === 0 &&
-            bricks.length > 15
+            index % 13 === 0
           ){
 
             brick.classList.add(
@@ -2208,42 +2362,27 @@ function archaeologyMode(){
 
 
         },
-        850 + index * 45
+        700 + index * 35
       );
 
     }
   );
 
 
-  /* --------------------------------
-     ADD VEGETATION
-  -------------------------------- */
+  /*
+  Vegetation appears near ground.
+  */
 
   setTimeout(
     function(){
 
 
-      const plantPositions = [
-
-        {left:8,bottom:75},
-
-        {left:18,bottom:78},
-
-        {left:31,bottom:73},
-
-        {left:48,bottom:77},
-
-        {left:62,bottom:72},
-
-        {left:76,bottom:80},
-
-        {left:88,bottom:74}
-
-      ];
+      const locations =
+      [8,20,34,58,72,88];
 
 
-      plantPositions.forEach(
-        function(position,index){
+      locations.forEach(
+        function(left){
 
 
           const plant =
@@ -2257,15 +2396,11 @@ function archaeologyMode(){
 
 
           plant.style.left =
-          position.left + "%";
+          left + "%";
 
 
           plant.style.bottom =
-          position.bottom + "px";
-
-
-          plant.style.animationDelay =
-          (index * .15) + "s";
+          "46px";
 
 
           workspace.appendChild(
@@ -2278,21 +2413,27 @@ function archaeologyMode(){
 
 
     },
-    1900
+    1800
   );
 
 
-  /* --------------------------------
-     ARCHAEOLOGY REVEAL
-  -------------------------------- */
+  /*
+  Show archaeology quiz.
+  */
 
   setTimeout(
     function(){
 
 
-      showMessage(
-        "🏺 Your monument has become a ruin. What evidence has survived?"
-      );
+      transition.remove();
+
+
+      document
+      .getElementById(
+        "inspirationSection"
+      )
+      .style.display =
+      "none";
 
 
       document
@@ -2303,22 +2444,209 @@ function archaeologyMode(){
       "block";
 
 
-      document
-      .getElementById(
-        "archCard"
-      )
-      .scrollIntoView({
-        behavior:"smooth",
-        block:"nearest"
-      });
-
-
-      transition.remove();
+      showMessage(
+        "🏺 Study the remains. What evidence can you find?"
+      );
 
 
     },
-    4300
+    4000
   );
+
+}
+
+
+
+/* ==================================================
+   QUIZ
+================================================== */
+
+function checkAnswers(){
+
+  const options =
+  document.querySelectorAll(
+    ".quiz-option"
+  );
+
+
+  const checked =
+  document.querySelectorAll(
+    ".quiz-check:checked"
+  );
+
+
+  const result =
+  document.getElementById(
+    "quizResult"
+  );
+
+
+  /*
+  Students must choose exactly 3.
+  */
+
+  if(
+    checked.length !== 3
+  ){
+
+    result.innerHTML =
+
+      "Choose exactly <b>3 statements</b> before checking.";
+
+    result.style.color =
+      "#7b3b2a";
+
+    return;
+  }
+
+
+  let score = 0;
+
+
+  options.forEach(
+    option => {
+
+
+      option.classList.remove(
+        "correct",
+        "wrong",
+        "missed"
+      );
+
+
+      const checkbox =
+      option.querySelector(
+        "input"
+      );
+
+
+      const isCorrect =
+
+        option.dataset.answer
+        ===
+        "true";
+
+
+      if(
+        checkbox.checked &&
+        isCorrect
+      ){
+
+        option.classList.add(
+          "correct"
+        );
+
+        score++;
+
+      }
+
+
+      else if(
+        checkbox.checked &&
+        !isCorrect
+      ){
+
+        option.classList.add(
+          "wrong"
+        );
+
+      }
+
+
+      else if(
+        !checkbox.checked &&
+        isCorrect
+      ){
+
+        option.classList.add(
+          "missed"
+        );
+
+      }
+
+    }
+  );
+
+
+  if(
+    score === 3
+  ){
+
+    result.innerHTML =
+
+      "🏺 <b>Excellent archaeological thinking!</b><br>" +
+
+      "You selected all 3 statements supported by the evidence.";
+
+    result.style.color =
+      "#315c47";
+
+  }
+
+  else{
+
+    result.innerHTML =
+
+      "🔎 You found " +
+
+      score +
+
+      " of the 3 correct statements.<br>" +
+
+      "Look again at what the ruins can actually tell us.";
+
+    result.style.color =
+      "#7b3b2a";
+
+  }
+
+}
+
+
+
+/* ==================================================
+   RESET QUIZ
+================================================== */
+
+function resetQuiz(){
+
+  document
+  .querySelectorAll(
+    ".quiz-check"
+  )
+  .forEach(
+    checkbox => {
+
+      checkbox.checked =
+      false;
+
+    }
+  );
+
+
+  document
+  .querySelectorAll(
+    ".quiz-option"
+  )
+  .forEach(
+    option => {
+
+      option.classList.remove(
+        "correct",
+        "wrong",
+        "missed"
+      );
+
+    }
+  );
+
+
+  document
+  .getElementById(
+    "quizResult"
+  )
+  .innerHTML =
+  "";
 
 }
 
@@ -2342,7 +2670,7 @@ function showMessage(text){
 
 
 /* ==================================================
-   DRAG BRICK FROM TRAY
+   DRAG NEW BRICK FROM TRAY
 ================================================== */
 
 brickSource.addEventListener(
@@ -2370,10 +2698,10 @@ brickSource.addEventListener(
 );
 
 
-
 workspace.addEventListener(
   "dragover",
   function(e){
+
 
     if(
       !archaeologyActivated
@@ -2385,7 +2713,6 @@ workspace.addEventListener(
 
   }
 );
-
 
 
 workspace.addEventListener(
@@ -2413,11 +2740,11 @@ workspace.addEventListener(
 
       e.clientX -
       rect.left -
-      27,
+      30,
 
       e.clientY -
       rect.top -
-      12
+      15
 
     );
 
@@ -2427,7 +2754,7 @@ workspace.addEventListener(
 
 
 /* ==================================================
-   CLICK BRICK SOURCE
+   CLICK SOURCE
 ================================================== */
 
 brickSource.addEventListener(
@@ -2460,10 +2787,7 @@ workspace.addEventListener(
 
 
     if(
-      e.target === workspace ||
-      e.target.classList.contains(
-        "ground"
-      )
+      e.target === workspace
     ){
 
 
@@ -2489,5 +2813,4 @@ workspace.addEventListener(
 </script>
 
 </body>
-
 </html>
